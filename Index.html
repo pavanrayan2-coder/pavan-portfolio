@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pavan Rayan R — Digital Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0e0d;
+    --cream: #faf7f2;
+    --sand: #e8ddd0;
+    --terracotta: #c4622d;
+    --terracotta-light: #e8845a;
+    --sage: #5a7a5f;
+    --sage-light: #7ba382;
+    --muted: #7a746e;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 4rem;
+    background: rgba(250,247,242,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--sand);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--terracotta);
+  }
+  .nav-links { display: flex; gap: 2.4rem; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6rem 3rem 6rem 4rem;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terracotta);
+    margin-bottom: 1.4rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 2rem; height: 1px;
+    background: var(--terracotta);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 900; line-height: 1.0;
+    margin-bottom: 1.6rem;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { font-style: italic; color: var(--terracotta); }
+  .hero-sub {
+    font-size: 1.05rem; color: var(--muted); line-height: 1.75;
+    max-width: 440px; margin-bottom: 2.8rem;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.7rem;
+    background: var(--terracotta); color: var(--white);
+    text-decoration: none; padding: 0.9rem 2rem;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { background: #a84d22; transform: translateY(-2px); }
+  .hero-cta svg { width: 14px; height: 14px; }
+
+  .hero-right {
+    background: var(--ink);
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center;
+    padding: 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(196,98,45,0.25) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(90,122,95,0.2) 0%, transparent 55%);
+  }
+  .hero-stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; position: relative; z-index: 1;
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px; padding: 1.8rem;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 900; color: var(--white);
+    line-height: 1;
+  }
+  .stat-card .num span { color: var(--terracotta-light); }
+  .stat-card .label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.55);
+    text-transform: uppercase; letter-spacing: 0.1em;
+    margin-top: 0.4rem;
+  }
+  .hero-tagline {
+    position: relative; z-index: 1;
+    margin-top: 2.5rem; text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-style: italic;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.02em;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 4rem; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--terracotta);
+    margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 1.5rem; height: 1px;
+    background: var(--terracotta);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3vw, 3rem);
+    font-weight: 700; line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+    border-top: 1px solid var(--sand);
+  }
+  .about-text p {
+    font-size: 1.15rem; line-height: 1.85; color: var(--muted);
+    margin-bottom: 1.4rem;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+  .about-right { display: flex; flex-direction: column; gap: 1.2rem; }
+  .about-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    background: var(--sand); border-radius: 2px;
+    font-size: 0.8rem; font-weight: 500; color: var(--ink);
+  }
+  .about-tag .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--terracotta);
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--ink); }
+  #skills .section-label { color: var(--terracotta-light); }
+  #skills .section-label::before { background: var(--terracotta-light); }
+  #skills .section-title { color: var(--white); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-item {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 2rem 1.8rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .skill-item:hover { border-color: var(--terracotta-light); transform: translateY(-4px); }
+  .skill-item::before {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 3px; background: var(--terracotta);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .skill-item:hover::before { transform: scaleX(1); }
+  .skill-icon { font-size: 1.6rem; margin-bottom: 0.8rem; }
+  .skill-name {
+    font-size: 0.95rem; font-weight: 600; color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+  .skill-desc { font-size: 0.8rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+  /* ── TOOLS & CERTS ── */
+  #tools { border-top: 1px solid var(--sand); }
+  .tools-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; }
+  .tools-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; align-content: flex-start; }
+  .tool-chip {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.7rem 1.2rem;
+    background: var(--white); border: 1px solid var(--sand);
+    border-radius: 2px; font-size: 0.85rem; font-weight: 500;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .tool-chip:hover { border-color: var(--terracotta); transform: translateY(-2px); }
+  .cert-list { display: flex; flex-direction: column; gap: 0.9rem; }
+  .cert-row {
+    display: flex; align-items: baseline; gap: 0.9rem;
+    padding-bottom: 0.9rem; border-bottom: 1px solid var(--sand);
+  }
+  .cert-row:last-child { border-bottom: none; }
+  .cert-mark {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    color: var(--terracotta); font-size: 1.1rem; flex-shrink: 0;
+  }
+  .cert-name { font-size: 0.95rem; font-weight: 600; color: var(--ink); }
+  .cert-issuer { font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; }
+
+  /* ── PROJECT SPOTLIGHT ── */
+  #project { background: var(--sage); color: var(--white); }
+  #project .section-label { color: rgba(255,255,255,0.75); }
+  #project .section-label::before { background: rgba(255,255,255,0.75); }
+  #project .section-title { color: var(--white); }
+  .project-wrap { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
+  .project-text p { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,0.85); margin-bottom: 1.2rem; }
+  .project-text p strong { color: white; }
+  .project-stats { display: flex; flex-direction: column; gap: 1.2rem; }
+  .project-stat {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px; padding: 1.4rem 1.6rem;
+  }
+  .project-stat .num {
+    font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900;
+  }
+  .project-stat .label { font-size: 0.78rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    .tools-wrap, .project-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* ── WORK ── */
+  #work { border-top: 1px solid var(--sand); }
+  .work-grid { display: flex; flex-direction: column; gap: 2rem; }
+  .work-card {
+    display: grid; grid-template-columns: 240px 1fr;
+    border: 1px solid var(--sand); border-radius: 4px; overflow: hidden;
+    transition: box-shadow 0.3s, transform 0.2s;
+  }
+  .work-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .work-card-accent {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 2rem; position: relative; overflow: hidden;
+    min-height: 200px;
+  }
+  .work-card-accent.terracotta { background: var(--terracotta); }
+  .work-card-accent.sage { background: var(--sage); }
+  .work-card-accent.dark { background: var(--ink); }
+  .work-card-accent::after {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 160px; height: 160px; border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .work-card-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700; color: white;
+    position: relative; z-index: 1;
+  }
+  .work-card-sub {
+    font-size: 0.75rem; color: rgba(255,255,255,0.65);
+    text-transform: uppercase; letter-spacing: 0.12em;
+    margin-top: 0.3rem; position: relative; z-index: 1;
+  }
+  .work-card-body { padding: 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+  .work-card-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; margin-bottom: 0.7rem;
+  }
+  .work-card-body p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.2rem; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 0.3rem 0.75rem;
+    border: 1px solid var(--sand); border-radius: 2px;
+    color: var(--muted);
+  }
+
+  /* ── DELIVERABLES ── */
+  #deliverables { background: var(--sand); }
+  .deliverables-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+  .deliverable-card {
+    background: var(--cream); border-radius: 4px;
+    padding: 2.2rem 1.5rem; text-align: center;
+    border: 1px solid transparent;
+    transition: border-color 0.25s, transform 0.2s;
+  }
+  .deliverable-card:hover { border-color: var(--terracotta); transform: translateY(-3px); }
+  .deliverable-icon { font-size: 2rem; margin-bottom: 0.7rem; }
+  .deliverable-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+
+  /* ── REPORTING ── */
+  #reporting {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: center;
+    border-top: 1px solid var(--sand);
+  }
+  .metrics-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
+  .metric-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--cream);
+    border: 1px solid var(--sand); border-radius: 4px;
+  }
+  .metric-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--terracotta); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; flex-shrink: 0;
+  }
+  .metric-name { font-size: 0.9rem; font-weight: 600; color: var(--ink); }
+  .metric-desc { font-size: 0.78rem; color: var(--muted); }
+  .reporting-text p {
+    font-size: 1rem; line-height: 1.85; color: var(--muted); margin-bottom: 1rem;
+  }
+
+  /* ── PARTNERSHIPS ── */
+  #partnerships { background: var(--ink); text-align: center; }
+  #partnerships .section-label { color: var(--terracotta-light); justify-content: center; }
+  #partnerships .section-label::before { background: var(--terracotta-light); }
+  #partnerships .section-title { color: var(--white); text-align: center; }
+  .partners-row {
+    display: flex; justify-content: center; gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .partner-badge {
+    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    padding: 2rem 3rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .partner-badge:hover { border-color: var(--terracotta-light); transform: translateY(-4px); }
+  .partner-badge .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: white;
+  }
+  .partner-badge .role { font-size: 0.75rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* ── CONTACT ── */
+  #contact {
+    text-align: center;
+    background: var(--terracotta);
+    padding: 7rem 4rem;
+  }
+  #contact .section-label { color: rgba(255,255,255,0.7); justify-content: center; }
+  #contact .section-label::before { background: rgba(255,255,255,0.7); }
+  #contact .section-title { color: white; text-align: center; margin-bottom: 1.5rem; }
+  #contact p { color: rgba(255,255,255,0.75); font-size: 1.05rem; line-height: 1.75; max-width: 520px; margin: 0 auto 2.5rem; }
+  .contact-details {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .contact-chip {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: rgba(255,255,255,0.15); color: white;
+    padding: 0.6rem 1.3rem; border-radius: 2px;
+    font-size: 0.85rem; font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: white; color: var(--terracotta);
+    text-decoration: none; padding: 0.95rem 2.2rem;
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; border-radius: 2px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 2rem;
+    background: var(--ink); color: rgba(255,255,255,0.3);
+    font-size: 0.78rem; letter-spacing: 0.05em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * { animation: fadeUp 0.7s ease both; }
+  .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
+  .hero-left > *:nth-child(3) { animation-delay: 0.35s; }
+  .hero-left > *:nth-child(4) { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    section { padding: 5rem 1.5rem; }
+    #about, #reporting { grid-template-columns: 1fr; gap: 3rem; }
+    .work-card { grid-template-columns: 1fr; }
+    .work-card-accent { min-height: 120px; }
+    .hero-left { padding: 5rem 1.5rem 4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pavan Rayan R</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#project">Project</a>
+    <a href="#work">Work</a>
+    <a href="#deliverables">Deliverables</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Crafting Campaigns That Connect</div>
+    <h1>Pavan<br><em>Rayan R</em></h1>
+    <p class="hero-sub" style="font-size:0.9rem;margin-bottom:0.6rem;color:var(--terracotta);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Digital Marketing Executive</p>
+    <p class="hero-sub">Specializing in social media strategy, content planning, audience engagement, and data-driven reporting. Based in Bangalore (originally from Vellore), India.</p>
+    <a class="hero-cta" href="#work">
+      View My Work
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="9,3 14,8 9,13"/></svg>
+    </a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat-grid">
+      <div class="stat-card">
+        <div class="num">3<span>+</span></div>
+        <div class="label">Brands Managed</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">3<span>+</span></div>
+        <div class="label">Partnerships</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">6<span>+</span></div>
+        <div class="label">Content Formats</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">360<span>°</span></div>
+        <div class="label">Strategy</div>
+      </div>
+    </div>
+    <div class="hero-tagline">"Grow. Engage. Convert."</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text">
+    <div class="section-label reveal">About Me</div>
+    <h2 class="section-title reveal">A Digital Marketer<br>Driven by <em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--terracotta)">Results</em></h2>
+    <p>I'm a Digital Marketing Professional with hands-on experience in <strong>social media strategy, content planning, and analytics reporting</strong> for education-focused brands.</p>
+    <p>From driving admissions campaigns for BeWise to optimizing engagement metrics for WiseConnect, I bring a blend of creative thinking and analytical precision to every project.</p>
+  </div>
+  <div class="about-right">
+    <div class="about-tag"><span class="dot"></span> Social Media Strategy</div>
+    <div class="about-tag"><span class="dot"></span> Content Planning & Calendar Management</div>
+    <div class="about-tag"><span class="dot"></span> Analytics & Monthly Reporting</div>
+    <div class="about-tag"><span class="dot"></span> Audience Engagement Optimization</div>
+    <div class="about-tag"><span class="dot"></span> Instagram, Facebook & LinkedIn Marketing</div>
+    <div class="about-tag"><span class="dot"></span> Campaign Planning</div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Core Skills</div>
+  <h2 class="section-title">What I Bring<br>to Every Brand</h2>
+  <div class="skills-grid">
+    <div class="skill-item">
+      <div class="skill-icon">📲</div>
+      <div class="skill-name">Social Media Marketing</div>
+      <div class="skill-desc">Platform-native strategies across Instagram, Facebook, and LinkedIn.</div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon">📝</div>
+      <div class="skill-name">Content Strategy</div>
+      <div class="skill-desc">Monthly calendars, campaign copy, and creative briefs tailored to audience.</div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Analytics & Reporting</div>
+      <div class="skill-desc">Reach, engagement, clicks, visits, and follower growth — tracked and presented clearly.</div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon">🎯</div>
+      <div class="skill-name">Campaign Planning</div>
+      <div class="skill-desc">End-to-end campaign design for admissions, scholarships, and lead generation.</div>
+    </div>
+    <div class="skill-item">
+      <div class="skill-icon">📈</div>
+      <div class="skill-name">Engagement Optimization</div>
+      <div class="skill-desc">Performance analysis and A/B driven decisions to grow communities organically.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & CERTIFICATIONS -->
+<section id="tools">
+  <div class="section-label reveal">Tools & Certifications</div>
+  <h2 class="section-title reveal">Equipped With the<br>Right Stack</h2>
+  <div class="tools-wrap">
+    <div class="tools-grid reveal">
+      <div class="tool-chip">📣 Meta Ads Manager</div>
+      <div class="tool-chip">📊 Google Analytics</div>
+      <div class="tool-chip">🎨 Canva</div>
+      <div class="tool-chip">📐 SPSS</div>
+      <div class="tool-chip">🧾 Tally Prime</div>
+      <div class="tool-chip">📑 MS Excel</div>
+      <div class="tool-chip">🗂️ Content Planning</div>
+      <div class="tool-chip">💬 Social Media Marketing</div>
+    </div>
+    <div class="cert-list reveal">
+      <div class="cert-row">
+        <div class="cert-mark">01</div>
+        <div>
+          <div class="cert-name">National Cadet Corps (NCC)</div>
+          <div class="cert-issuer">Discipline, leadership & teamwork training</div>
+        </div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-mark">02</div>
+        <div>
+          <div class="cert-name">Diploma in Computer Applications (DCA)</div>
+          <div class="cert-issuer">Core computer & office software proficiency</div>
+        </div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-mark">03</div>
+        <div>
+          <div class="cert-name">Tally Prime Certification</div>
+          <div class="cert-issuer">Accounting & business data management</div>
+        </div>
+      </div>
+      <div class="cert-row">
+        <div class="cert-mark">04</div>
+        <div>
+          <div class="cert-name">Employability Skills Workshop</div>
+          <div class="cert-issuer">Professional communication & workplace readiness</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT SPOTLIGHT -->
+<section id="project">
+  <div class="section-label reveal">Academic Spotlight</div>
+  <h2 class="section-title reveal">MBA Final Year<br>Research Project</h2>
+  <div class="project-wrap">
+    <div class="project-text reveal">
+      <p><strong>"Role of Social Media in Lead Generation"</strong> — a research study conducted for Fuziongrow Solution LLP as part of my MBA in Marketing & Business Analytics.</p>
+      <p>The project examined how platform-specific content strategy, audience targeting, and engagement patterns translate into qualified leads for a digital agency client, backed by statistical analysis and survey data.</p>
+      <p>Findings were compiled into a complete 20-slide presentation covering methodology, data analysis, and actionable recommendations for lead-generation strategy.</p>
+    </div>
+    <div class="project-stats reveal">
+      <div class="project-stat">
+        <div class="num">20</div>
+        <div class="label">Slide Research Deck</div>
+      </div>
+      <div class="project-stat">
+        <div class="num">1</div>
+        <div class="label">Live Client: Fuziongrow Solution LLP</div>
+      </div>
+      <div class="project-stat">
+        <div class="num">SPSS</div>
+        <div class="label">Statistical Analysis Tooling</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="work">
+  <div class="section-label reveal">Featured Work</div>
+  <h2 class="section-title reveal">Brands I've<br>Grown & Shaped</h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-card-accent terracotta">
+        <div class="work-card-label">BeWise</div>
+        <div class="work-card-sub">Education Brand</div>
+      </div>
+      <div class="work-card-body">
+        <h3>Admissions & Parent Engagement Campaigns</h3>
+        <p>Led education-focused content strategy including monthly content calendars, admissions campaign assets, and parent engagement drives. Built a consistent brand voice across platforms to support enrollment goals.</p>
+        <div class="tag-row">
+          <span class="tag">Content Calendar</span>
+          <span class="tag">Admissions Campaigns</span>
+          <span class="tag">Parent Engagement</span>
+          <span class="tag">Brand Strategy</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-accent sage">
+        <div class="work-card-label">BeWise Campus</div>
+        <div class="work-card-sub">College Division</div>
+      </div>
+      <div class="work-card-body">
+        <h3>Student Opportunity & Career Content</h3>
+        <p>Created campaigns spotlighting internship openings, scholarship announcements, and career-focused content for college students. Aimed at driving applications and building an active campus community online.</p>
+        <div class="tag-row">
+          <span class="tag">Internship Campaigns</span>
+          <span class="tag">Scholarships</span>
+          <span class="tag">Career Content</span>
+          <span class="tag">Student Community</span>
+        </div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-accent dark">
+        <div class="work-card-label">WiseConnect</div>
+        <div class="work-card-sub">Growth Platform</div>
+      </div>
+      <div class="work-card-body">
+        <h3>Performance Analysis & Social Growth</h3>
+        <p>Delivered deep-dive performance analysis and engagement optimization for the WiseConnect platform. Identified growth levers and built month-over-month social media growth plans backed by insights data.</p>
+        <div class="tag-row">
+          <span class="tag">Performance Analysis</span>
+          <span class="tag">Engagement Optimization</span>
+          <span class="tag">Growth Planning</span>
+          <span class="tag">Insights</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section id="deliverables">
+  <div class="section-label reveal">Sample Deliverables</div>
+  <h2 class="section-title reveal">What I Create</h2>
+  <div class="deliverables-grid">
+    <div class="deliverable-card">
+      <div class="deliverable-icon">🎬</div>
+      <div class="deliverable-name">Reels</div>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">🖼️</div>
+      <div class="deliverable-name">Static Posts</div>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">🎠</div>
+      <div class="deliverable-name">Carousels</div>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">🗓️</div>
+      <div class="deliverable-name">Content Calendars</div>
+    </div>
+    <div class="deliverable-card">
+      <div class="deliverable-icon">📋</div>
+      <div class="deliverable-name">Monthly Reports</div>
+    </div>
+  </div>
+</section>
+
+<!-- REPORTING -->
+<section id="reporting">
+  <div class="reporting-text">
+    <div class="section-label reveal">Reporting Expertise</div>
+    <h2 class="section-title reveal">Metrics That<br>Tell the Story</h2>
+    <p>Every campaign I run is backed by structured reporting. I track the numbers that actually matter — and translate them into clear, actionable insights for stakeholders.</p>
+    <p>Monthly reports give a complete picture of growth, so brands can confidently scale what works.</p>
+  </div>
+  <div>
+    <div class="metrics-list">
+      <div class="metric-row">
+        <div class="metric-icon">👁️</div>
+        <div><div class="metric-name">Reach</div><div class="metric-desc">Total unique accounts exposed to content</div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-icon">❤️</div>
+        <div><div class="metric-name">Engagement</div><div class="metric-desc">Likes, comments, shares, and saves</div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-icon">🔗</div>
+        <div><div class="metric-name">Clicks</div><div class="metric-desc">Link clicks and CTA performance</div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-icon">🌐</div>
+        <div><div class="metric-name">Visits</div><div class="metric-desc">Profile and website traffic from social</div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-icon">📈</div>
+        <div><div class="metric-name">Followers</div><div class="metric-desc">Growth trends and net new audience</div></div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-icon">💡</div>
+        <div><div class="metric-name">Insights</div><div class="metric-desc">Audience demographics and behaviour</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIPS -->
+<section id="partnerships">
+  <div class="section-label reveal">Collaborations</div>
+  <h2 class="section-title reveal">Partnership Network</h2>
+  <div class="partners-row">
+    <div class="partner-badge">
+      <div class="name">Buddy4Study</div>
+      <div class="role">Ed-tech Partner</div>
+    </div>
+    <div class="partner-badge">
+      <div class="name">Diya Labs</div>
+      <div class="role">Innovation Partner</div>
+    </div>
+    <div class="partner-badge">
+      <div class="name">YouVah</div>
+      <div class="role">Youth Empowerment</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Let's Work Together</h2>
+  <p>Open to freelance projects, full-time roles, and collaborations in digital marketing, content strategy, and social media growth.</p>
+  <div class="contact-details">
+    <div class="contact-chip">📍 Bangalore · Vellore, India</div>
+    <a href="tel:+917010620390" class="contact-chip" style="text-decoration:none;">📞 +91 7010620390</a>
+    <a href="mailto:pavanrayan2@gmail.com" class="contact-chip" style="text-decoration:none;">✉️ pavanrayan2@gmail.com</a>
+    <div class="contact-chip">💼 Digital Marketing Executive</div>
+  </div>
+  <a href="mailto:pavanrayan2@gmail.com" class="contact-btn">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+    Send a Message
+  </a>
+</section>
+
+<footer>© 2025 Pavan Rayan R · Digital Marketing Portfolio · Bangalore, India · pavanrayan2@gmail.com · +91 7010620390</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
